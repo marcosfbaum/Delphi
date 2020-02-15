@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/12/23 07:04:18.000.696,=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:10:07.000.551,=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:45:31.000.682,=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:46:21.000.294,D:\TesteSenior\Delphi\Medio\form\UPrincipal.dfm=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2019/07/20 06:46:21.000.293,D:\TesteSenior\Delphi\Medio\form\UPrincipal.pas=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:46:46.000.790,D:\TesteSenior\Delphi\Medio\bin\ProjMedio.dproj=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2019/07/20 06:52:51.000.730,=D:\TesteSenior\Delphi\Medio\bin\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:53:18.000.587,=D:\TesteSenior\Delphi\Medio\bin\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:56:31.000.439,=D:\TesteSenior\Delphi\Medio\bin\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:56:40.000.985,D:\TesteSenior\Delphi\Medio\interface\UIMaquina.pas=D:\TesteSenior\Delphi\Medio\bin\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:58:42.000.919,D:\TesteSenior\Delphi\Medio\interface\IMaquina.pas=D:\TesteSenior\Delphi\Medio\interface\UIMaquina.pas</Transaction>
+    <Transaction>2019/07/20 07:09:44.000.490,=D:\TesteSenior\Delphi\Medio\bin\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 07:10:16.000.219,D:\TesteSenior\Delphi\Medio\bin\Unit1.pas=D:\TesteSenior\Delphi\Medio\class\UMaquinaDinheiro.pas</Transaction>
+    <Transaction>2019/07/20 07:16:07.000.550,=D:\TesteSenior\Delphi\Medio\bin\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 07:16:41.000.654,D:\TesteSenior\Delphi\Medio\bin\Unit1.pas=D:\TesteSenior\Delphi\Medio\class\UTroco.pas</Transaction>
+    <Transaction>2019/07/22 00:56:27.000.608,=D:\TesteSenior\Delphi\Medio\bin\Unit1.pas</Transaction>
+    <Transaction>2019/07/22 00:56:45.000.568,D:\TesteSenior\Delphi\Medio\bin\Unit1.pas=D:\TesteSenior\Delphi\Medio\class\UExeptionExtension.pas</Transaction>
+    <Transaction>2020/02/14 23:02:59.927,D:\Projetos\DelphiRepo\MaquinaDinheiro\bin\MoneyMachine.dproj=D:\Projetos\DelphiRepo\MaquinaDinheiro\bin\ProjMedio.dproj</Transaction>
+    <Transaction>2020/02/14 23:04:13.723,D:\Projetos\DelphiRepo\MaquinaDinheiro\form\uMain.pas=D:\Projetos\DelphiRepo\MaquinaDinheiro\form\UPrincipal.pas</Transaction>
+    <Transaction>2020/02/14 23:04:13.723,D:\Projetos\DelphiRepo\MaquinaDinheiro\form\uMain.dfm=D:\Projetos\DelphiRepo\MaquinaDinheiro\form\UPrincipal.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
