@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/10/29 22:28:25.000.454,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/02/14 21:54:13.000.116,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/02/14 21:55:02.000.025,D:\Projetos\Delphi\TaskDialogExample\uMain.pas=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/02/14 21:55:02.000.025,D:\Projetos\Delphi\TaskDialogExample\uMain.dfm=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/02/14 21:55:27.000.731,D:\Projetos\Delphi\TaskDialogExample\Bin\TaskDialogExample.dproj=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/02/14 21:57:18.000.899,=D:\Projetos\Delphi\TaskDialogExample\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/02/14 21:57:47.000.401,D:\Projetos\Delphi\TaskDialogExample\Unit\Service.TaskDialogProgress.pas=D:\Projetos\Delphi\TaskDialogExample\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/02/14 21:58:01.000.590,D:\Projetos\Delphi\TaskDialogExample\Form\uMain.pas=D:\Projetos\Delphi\TaskDialogExample\uMain.pas</Transaction>
+    <Transaction>2020/02/14 21:58:01.000.590,D:\Projetos\Delphi\TaskDialogExample\Form\uMain.dfm=D:\Projetos\Delphi\TaskDialogExample\uMain.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
