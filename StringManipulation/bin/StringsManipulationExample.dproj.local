@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2018/12/23 07:04:18.000.696,=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/07/18 00:09:31.000.788,=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/07/18 00:10:39.000.725,D:\TesteSenior\Delphi\Form\UPrincipal.dfm=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2019/07/18 00:10:39.000.725,D:\TesteSenior\Delphi\Form\UPrincipal.pas=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2019/07/18 00:10:59.000.927,D:\TesteSenior\Delphi\Form\ProjSimples.dproj=C:\Users\Marcos Baum\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2019/07/18 00:13:39.000.113,=D:\TesteSenior\Delphi\Form\Unit1.pas</Transaction>
+    <Transaction>2019/07/18 00:14:58.000.299,D:\TesteSenior\Delphi\Interface\UISubstitui.pas=D:\TesteSenior\Delphi\Form\Unit1.pas</Transaction>
+    <Transaction>2019/07/18 00:15:31.000.558,=D:\TesteSenior\Delphi\Form\Unit1.pas</Transaction>
+    <Transaction>2019/07/18 00:15:59.000.834,D:\TesteSenior\Delphi\Classe\USubstitui.pas=D:\TesteSenior\Delphi\Form\Unit1.pas</Transaction>
+    <Transaction>2019/07/18 00:33:59.000.477,=D:\TesteSenior\Delphi\Form\Unit1.pas</Transaction>
+    <Transaction>2019/07/18 00:34:44.000.156,D:\TesteSenior\Delphi\Classe\UExeptionExtension.pas=D:\TesteSenior\Delphi\Form\Unit1.pas</Transaction>
+    <Transaction>2019/07/20 06:18:37.000.238,D:\TesteSenior\Delphi\1 - Simples\Form\ProjSimples.dproj=D:\TesteSenior\Delphi\Simples\bin\ProjSimples.dproj</Transaction>
+    <Transaction>2019/07/20 06:19:05.000.767,D:\TesteSenior\Delphi\1 - Simples\Form\UPrincipal.pas=D:\TesteSenior\Delphi\Simples\Form\UPrincipal.pas</Transaction>
+    <Transaction>2019/07/20 06:19:05.000.767,D:\TesteSenior\Delphi\1 - Simples\Form\UPrincipal.dfm=D:\TesteSenior\Delphi\Simples\Form\UPrincipal.dfm</Transaction>
+    <Transaction>2019/07/20 06:19:46.000.243,D:\TesteSenior\Delphi\1 - Simples\Interface\UISubstitui.pas=D:\TesteSenior\Delphi\Simples\Interface\UISubstitui.pas</Transaction>
+    <Transaction>2019/07/20 06:20:28.000.990,D:\TesteSenior\Delphi\1 - Simples\Classe\USubstitui.pas=D:\TesteSenior\Delphi\Simples\Class\USubstitui.pas</Transaction>
+    <Transaction>2019/07/20 06:20:57.000.764,D:\TesteSenior\Delphi\1 - Simples\Classe\UExeptionExtension.pas=D:\TesteSenior\Delphi\Simples\Class\UExeptionExtension.pas</Transaction>
+    <Transaction>2020/02/14 22:53:00.000.514,D:\Projetos\DelphiRepo\ManipulandoStrings\bin\ProjSimples.dproj=D:\Projetos\DelphiRepo\StringManipulation\StringsManipulationExample.dproj</Transaction>
+    <Transaction>2020/02/14 22:53:17.000.959,D:\Projetos\DelphiRepo\ManipulandoStrings\form\UPrincipal.dfm=D:\Projetos\DelphiRepo\ManipulandoStrings\form\Form\UMain.dfm</Transaction>
+    <Transaction>2020/02/14 22:53:17.000.959,D:\Projetos\DelphiRepo\ManipulandoStrings\form\UPrincipal.pas=D:\Projetos\DelphiRepo\ManipulandoStrings\form\Form\UMain.pas</Transaction>
+    <Transaction>2020/02/14 22:55:00.000.510,D:\Projetos\DelphiRepo\ManipulandoStrings\class\USubstitui.pas=D:\Projetos\DelphiRepo\StringManipulation\units\uSubstitui.pas</Transaction>
+    <Transaction>2020/02/14 22:55:21.000.759,D:\Projetos\DelphiRepo\ManipulandoStrings\class\UExeptionExtension.pas=D:\Projetos\DelphiRepo\StringManipulation\units\uExeptionExtension.pas</Transaction>
+    <Transaction>2020/02/14 22:55:44.000.967,D:\Projetos\DelphiRepo\ManipulandoStrings\interface\UISubstitui.pas=D:\Projetos\DelphiRepo\StringManipulation\interface\uISubstitui.pas</Transaction>
+    <Transaction>2020/02/14 22:56:35.000.020,D:\Projetos\DelphiRepo\ManipulandoStrings\form\Form\UMain.dfm=D:\Projetos\DelphiRepo\StringManipulation\form\uMain.dfm</Transaction>
+    <Transaction>2020/02/14 22:56:35.000.020,D:\Projetos\DelphiRepo\ManipulandoStrings\form\Form\UMain.pas=D:\Projetos\DelphiRepo\StringManipulation\form\uMain.pas</Transaction>
+    <Transaction>2020/02/14 22:59:36.920,D:\Projetos\DelphiRepo\StringManipulation\bin\StringsManipulationExample.dproj=D:\Projetos\DelphiRepo\StringManipulation\StringsManipulationExample.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
