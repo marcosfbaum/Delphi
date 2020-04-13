@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2019/10/29 22:28:25.000.454,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/04/08 17:03:40.000.925,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/04/08 17:12:54.000.941,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uFPrincipal.pas=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/04/08 17:12:54.000.942,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uFPrincipal.dfm=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/04/08 17:13:20.000.758,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\ProjSistemaAmortizacaoJuros.dproj=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/04/08 17:26:01.000.446,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/08 17:26:22.000.207,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uFAmortizacao.dfm=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.dfm</Transaction>
+    <Transaction>2020/04/08 17:26:22.000.207,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uFAmortizacao.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/08 17:44:48.000.656,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/08 17:45:35.000.836,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\UMemTableHelper.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/08 17:49:35.000.443,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\UFDMemTableHelper.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\UMemTableHelper.pas</Transaction>
+    <Transaction>2020/04/12 09:35:08.000.963,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 09:36:06.000.378,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Helpers\uTEditHelper.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 10:00:07.000.180,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 10:01:39.000.411,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uInformationMessage.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 10:04:07.000.175,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uBallonMessage.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uInformationMessage.pas</Transaction>
+    <Transaction>2020/04/12 10:22:00.000.550,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Helpers\uFDMemTableHelper.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\UFDMemTableHelper.pas</Transaction>
+    <Transaction>2020/04/12 10:23:00.000.158,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 10:23:44.000.239,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\uException.Validation.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 12:06:19.000.262,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 12:06:53.000.408,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Helpers\uTDBGridHelper.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 14:27:20.000.541,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 14:28:25.000.509,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\uFinance.Controller.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 14:37:41.000.310,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 14:38:17.000.169,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uInstallments.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 14:38:27.000.750,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 14:38:54.000.108,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\IInstallments.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 14:39:48.000.648,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uIInstallments.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\IInstallments.pas</Transaction>
+    <Transaction>2020/04/12 15:41:32.000.194,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 15:42:03.000.115,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uFinancing.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 15:42:47.000.932,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 15:43:04.000.765,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uIFinancing.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/12 16:07:44.000.928,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uInstallment.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uInstallments.pas</Transaction>
+    <Transaction>2020/04/12 16:08:14.000.214,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uIInstallment.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Units\uIInstallments.pas</Transaction>
+    <Transaction>2020/04/13 00:12:03.000.854,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/13 00:12:26.000.151,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Helpers\uStringHelper.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/13 00:19:36.000.250,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/13 00:20:31.000.622,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Helpers\uStringHelper.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/13 00:28:46.000.248,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Helpers\uStringHelper.pas=</Transaction>
+    <Transaction>2020/04/13 00:29:37.000.442,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/13 00:30:00.000.262,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Utils\uSystemUtils.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/13 01:58:20.000.874,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uFSimulacaoFinanciamento.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uFAmortizacao.pas</Transaction>
+    <Transaction>2020/04/13 01:58:20.000.874,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uFSimulacaoFinanciamento.dfm=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uFAmortizacao.dfm</Transaction>
+    <Transaction>2020/04/13 02:21:07.000.635,=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas</Transaction>
+    <Transaction>2020/04/13 02:21:35.000.671,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.pas=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uResources.Utils.pas</Transaction>
+    <Transaction>2020/04/13 02:21:35.000.671,D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Bin\Unit1.dfm=D:\DelphiTestsProjects\SistemaAmortizacaoJuros\Forms\uResources.Utils.dfm</Transaction>
+  </Transactions>
+</BorlandProject>
