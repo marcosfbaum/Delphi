@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages,
-  System.SysUtils, System.Variants, System.Classes, System.Math,
+  System.SysUtils, System.Variants, System.Classes, System.Math, System.UItypes,
   Vcl.Graphics, Vcl.Controls, Vcl.Forms, Vcl.Dialogs, uFRegistrationTemplate, cxGraphics,
   cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxStyles, dxSkinsCore,
   dxSkinsDefaultPainters, cxCustomData, cxFilter, cxData, cxDataStorage, cxEdit,
