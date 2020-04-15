@@ -15,11 +15,11 @@ uses
 
 type
   TFStudentRegistration = class(TFRegistrationTemplate)
-    gvRegistersMATRICULA: TcxGridColumn;
-    gvRegistersNOME_ALUNO: TcxGridColumn;
-    gvRegistersENDERECO: TcxGridColumn;
-    gvRegistersTELEFONE: TcxGridColumn;
-    gvRegistersCPF: TcxGridColumn;
+    gvRegisters_MATRICULA: TcxGridColumn;
+    gvRegisters_NOME_ALUNO: TcxGridColumn;
+    gvRegisters_ENDERECO: TcxGridColumn;
+    gvRegisters_TELEFONE: TcxGridColumn;
+    gvRegisters_CPF: TcxGridColumn;
     Label1: TLabel;
     edMatricula: TEdit;
     Label2: TLabel;
@@ -30,7 +30,7 @@ type
     Label5: TLabel;
     edFone: TEdit;
     Label4: TLabel;
-    gvRegistersID: TcxGridColumn;
+    gvRegisters_ID: TcxGridColumn;
     Label6: TLabel;
     edID: TEdit;
     procedure sbFilterChange(Sender: TObject);
@@ -65,7 +65,7 @@ begin
 
 // No filtro pode ser passado SQL já definido ou apenas a entidade e seus parâmetros.
   FService.AddParamsDB('NOME_ALUNO', sbFilter.Text, ftString, True);
-//  LDataset := FService.Filter(rsFilterSQL);
+//  LDataset := FService.Filter(rsFilterSQL); //Assim tb funciona
   LDataset := FService.Filter(FStudentEntity, ['NOME_ALUNO']);
 
   if Assigned(Ldataset) then
@@ -156,12 +156,12 @@ end;
 
 procedure TFStudentRegistration.EditStudent(const aSelectedRow: Integer);
 begin
-  edID.Text         := GetValueFromIndex(aSelectedRow, gvRegistersID.Index);
-  edMatricula.Text  := GetValueFromIndex(aSelectedRow, gvRegistersMATRICULA.Index);
-  edNome.Text       := GetValueFromIndex(aSelectedRow, gvRegistersNOME_ALUNO.Index);
-  edEndereco.Text   := GetValueFromIndex(aSelectedRow, gvRegistersENDERECO.Index);
-  edFone.Text       := GetValueFromIndex(aSelectedRow, gvRegistersTELEFONE.Index);
-  edCPF.Text        := GetValueFromIndex(aSelectedRow, gvRegistersCPF.Index);
+  edID.Text         := GetValueFromIndex(aSelectedRow, gvRegisters_ID.Index);
+  edMatricula.Text  := GetValueFromIndex(aSelectedRow, gvRegisters_MATRICULA.Index);
+  edNome.Text       := GetValueFromIndex(aSelectedRow, gvRegisters_NOME_ALUNO.Index);
+  edEndereco.Text   := GetValueFromIndex(aSelectedRow, gvRegisters_ENDERECO.Index);
+  edFone.Text       := GetValueFromIndex(aSelectedRow, gvRegisters_TELEFONE.Index);
+  edCPF.Text        := GetValueFromIndex(aSelectedRow, gvRegisters_CPF.Index);
   edNome.SetFocus;
 end;
 

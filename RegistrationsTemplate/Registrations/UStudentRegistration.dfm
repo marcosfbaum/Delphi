@@ -1,13 +1,17 @@
 inherited FStudentRegistration: TFStudentRegistration
   Caption = 'Cadastro de alunos'
+  ClientHeight = 256
   ClientWidth = 556
   ExplicitWidth = 562
+  ExplicitHeight = 285
   PixelsPerInch = 96
   TextHeight = 13
   inherited pnAll: TPanel
     Width = 556
+    Height = 256
     ExplicitWidth = 556
     inherited pnButtons: TPanel
+      Top = 215
       Width = 556
       ExplicitWidth = 556
       inherited btnCloseForm: TButton
@@ -17,36 +21,39 @@ inherited FStudentRegistration: TFStudentRegistration
     end
     inherited pgcRegisters: TPageControl
       Width = 556
-      ActivePage = tsDetail
+      Height = 215
       ExplicitWidth = 556
       inherited tsRegisters: TTabSheet
         ExplicitWidth = 548
         inherited gRegisters: TcxGrid
           Width = 542
+          Height = 124
           ExplicitWidth = 542
           inherited gvRegisters: TcxGridTableView
             OnEditKeyPress = nil
-            object gvRegistersID: TcxGridColumn
+            object gvRegisters_ID: TcxGridColumn
+              Caption = 'C'#243'digo'
+              Width = 45
             end
-            object gvRegistersMATRICULA: TcxGridColumn
+            object gvRegisters_MATRICULA: TcxGridColumn
               Caption = 'Matricula'
-              Width = 55
+              Width = 60
             end
-            object gvRegistersNOME_ALUNO: TcxGridColumn
+            object gvRegisters_NOME_ALUNO: TcxGridColumn
               Caption = 'Nome'
-              Width = 100
+              Width = 150
             end
-            object gvRegistersENDERECO: TcxGridColumn
-              Caption = 'Endere'#231'o'
-              Width = 120
-            end
-            object gvRegistersTELEFONE: TcxGridColumn
+            object gvRegisters_TELEFONE: TcxGridColumn
               Caption = 'Telefone'
               Width = 70
             end
-            object gvRegistersCPF: TcxGridColumn
+            object gvRegisters_CPF: TcxGridColumn
               Caption = 'CPF'
               Width = 70
+            end
+            object gvRegisters_ENDERECO: TcxGridColumn
+              Caption = 'Endere'#231'o'
+              Width = 300
             end
           end
         end
@@ -55,6 +62,7 @@ inherited FStudentRegistration: TFStudentRegistration
           ExplicitWidth = 548
           inherited sbFilter: TSearchBox
             Width = 542
+            TextHint = 'Busque pelo Nome'
             ExplicitWidth = 542
           end
           inherited btnShowAll: TButton
@@ -69,6 +77,7 @@ inherited FStudentRegistration: TFStudentRegistration
       inherited tsDetail: TTabSheet
         ExplicitWidth = 548
         inherited pnButtonsDetail: TPanel
+          Top = 153
           Width = 548
           ExplicitWidth = 548
           inherited btnCancel: TButton
@@ -82,6 +91,7 @@ inherited FStudentRegistration: TFStudentRegistration
         end
         inherited gbData: TGroupBox
           Width = 542
+          Height = 147
           ExplicitWidth = 542
           object Label1: TLabel
             Left = 16

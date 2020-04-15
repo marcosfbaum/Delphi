@@ -180,6 +180,18 @@ begin
 end;
 
 procedure TFRegistrationTemplate.ShowData(var aDataset: TDataSet);
+//  As colunas da cxGrid devem conter o <NOME_DA_CXGRID> <_> <NOME_DO_CAMPO_NA_TABELA>.
+//  para assim mover automaticamente os dados para seus respectivos campos.
+  function FindFieldName(const aIndex: Integer): string;
+  var
+    LName: string;
+  begin
+    LName := TcxGridColumn(gvRegisters.Columns[aIndex]).Name;
+    Assert((LName.IndexOf('_') > 0),
+      'Atenção, a NOMENCLATURA não está coforme indicado para mover automáticamente os valores para os campos do cxGrid.');
+
+    Result := Copy(LName, LName.IndexOf('_') + 2, Length(LName)) ;
+  end;
 var
   Index: Integer;
   I: Integer;
@@ -191,8 +203,8 @@ begin
     begin
       Index := gvRegisters.DataController.AppendRecord;
 
-      for I := 0 to adataset.Fields.Count -1 do
-        gvRegisters.DataController.Values[Index, I]  := aDataset.Fields[I].Value;
+      for I := 0 to gvRegisters.ColumnCount -1 do
+        gvRegisters.DataController.Values[Index, I] := aDataset.FieldByName(FindFieldName(I)).Value;
 
       aDataset.Next;
     end;

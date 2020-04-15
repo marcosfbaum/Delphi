@@ -14,6 +14,7 @@ object FRegistrationTemplate: TFRegistrationTemplate
   Font.Style = []
   KeyPreview = True
   OldCreateOrder = False
+  Position = poMainFormCenter
   OnClose = FormClose
   OnCreate = FormCreate
   OnKeyDown = FormKeyDown
@@ -35,6 +36,8 @@ object FRegistrationTemplate: TFRegistrationTemplate
       Height = 41
       Align = alBottom
       BevelOuter = bvNone
+      Color = clGradientInactiveCaption
+      ParentBackground = False
       TabOrder = 0
       object btnCloseForm: TButton
         AlignWithMargins = True
