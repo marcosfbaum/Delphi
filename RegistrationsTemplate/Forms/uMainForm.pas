@@ -5,10 +5,10 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls,
-  uFRegistrationTemplate;
+  UStudentRegistration;
 
 type
-  TForm1 = class(TForm)
+  TFMain = class(TForm)
     Button1: TButton;
     procedure Button1Click(Sender: TObject);
   private
@@ -18,15 +18,15 @@ type
   end;
 
 var
-  Form1: TForm1;
+  FMain: TFMain;
 
 implementation
 
 {$R *.dfm}
 
-procedure TForm1.Button1Click(Sender: TObject);
+procedure TFMain.Button1Click(Sender: TObject);
 begin
-  TFRegistrationTemplate.Create(Self).ShowModal;
+  TFStudentRegistration.Create(Self).ShowModal;
 end;
 
 end.

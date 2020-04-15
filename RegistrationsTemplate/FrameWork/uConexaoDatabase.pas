@@ -6,6 +6,7 @@ uses
   System.SysUtils,
   System.UITypes,
   System.Strutils,
+  System.Classes,
   uIConexaoDatabase,
   FireDAC.Stan.Intf, FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf,
   FireDAC.Phys.Intf, FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async,
@@ -36,11 +37,10 @@ type
       FTransaction: TFDTransaction;
       FMoniCustom: TFDMoniCustomClientLink;
       FParamsConexao: TparametrosConexao;
-      FFilialFisica: SmallInt;
+      FParamsDB: TFDParams;
       procedure CriaConnectionDB();
-      function  GetObjQuery(const ASql: String; AParams: TParamsDB = nil): TFDQuery;
+      function  GetObjQuery(const ASql: String): TFDQuery;
       procedure ConnAfterConnect(Sender: TObject);
-      function  GetMyFilial(): SmallInt;
       const
         FSectionConnParams: string = 'CONN_MYSQL';
         FNameIniFile: string = 'ConnectionsParams.Ini';
@@ -48,10 +48,9 @@ type
       function  CarregarParametrosConexao: Boolean;
     public
       function  DataBase(): String;
-      function  ExecQuery(const ASql: String; AParams: TParamsDB = nil): TDataSet;
-      function  ExecScript(const ASql: String; AParams: TParamsDB = nil): Integer; overload;
+      function  ExecQuery(const ASql: String): TDataSet;
       function  ExecScript(const ASql: String): Integer; overload;
-      procedure ExecProcedure(const AProcedureName: String; AParams: TParamsDB = nil);
+      procedure ExecProcedure(const AProcedureName: String);
       function  GetConnection(): TObject;
       procedure StartTransaction();
       function  InTransaction(): Boolean;
@@ -59,7 +58,7 @@ type
       procedure Rollback();
       procedure Open();
       procedure Close();
-      procedure AddParam(var AParams: TParamsDB; const AName: String; AValue: Variant; const AType: TFieldType; const AClear: Boolean = True);
+      procedure AddParam(const AName: String; AValue: Variant; const AType: TFieldType; const AClear: Boolean = True);
       function  GetIdConnection(): Int64;
       function  GetDateTimeNow(): TDateTime;
       function  IsSchemaExists(const Schema: String): Boolean;
@@ -82,9 +81,14 @@ begin
   FParamsConexao.UserName    := IfThen(AUserName <> EmptyStr, AUserName, FParamsConexao.UserName);
   FParamsConexao.DataBase    := IfThen(ADataBase <> EmptyStr, ADataBase, FParamsConexao.DataBase);
   FDPhysMySQLDriverLink1     := TFDPhysMySQLDriverLink.Create(nil);
+
   CriaConnectionDB();
 
-  FFilialFisica := GetMyFilial();
+  FParamsDB := TParamsDB.Create;
+
+  FTransaction := TFDTransaction.Create(FConnection);
+  FTransaction.Connection := FConnection;
+  FTransaction.Connection.Name := FTransaction.Name;
 end;
 
 procedure TConexaoBD.Close;
@@ -110,9 +114,9 @@ procedure TConexaoBD.CriaConnectionDB;
   procedure AddNewUser(const AUser, APassword: String);
   begin
     // Adiciona usuário já liberando todos os privilegios
-    ExecScript('grant all privileges on *.* to "'+ AUser +'"@"%" identified by "'+ APassword +'";', nil);
+    ExecScript('grant all privileges on *.* to "'+ AUser +'"@"%" identified by "'+ APassword +'";');
     // Atualiza as permissões
-    ExecScript('flush privileges;', nil);
+    ExecScript('flush privileges;');
   end;
 const
   CLibMySQL = 'LIBMYSQL';
@@ -143,13 +147,6 @@ begin
       on Efd: EFDException do
       begin
         case Efd.FDCode of
-//          er_FD_AccCantLoadLibrary,
-//          er_FD_AccCantGetLibraryEntry:
-//            begin
-//              if (not FindFileResource(CLibMySQL)) then
-//                raise;
-//              SaveFileResource(CLibMySQL, _PathSistema + 'libmySQL.dll');
-//            end;
           er_FD_MySQLGeneral:
             begin
               MessageDlg('Ocorreu um erro ao conectar ao banco de dados.' + sLineBreak + 'Detalhes: ' + Efd.Message, mtError, [mbOK], 0);
@@ -159,16 +156,11 @@ begin
               Connected := False;
               Params.Values['User_Name'] := FParamsConexao.UserName;
             end;
-        else
-//          if (not FindFileResource(CLibMySQL)) then
-//            raise;
-//          SaveFileResource(CLibMySQL, FParamsConexao.PathSistema + 'libmySQL.dll');
         end;
 
         //Tenta conectar novamente para ver se corrigiu
         if (not Connected) then
           Connected := True;
-
       end;
       on Ex: Exception do
         raise;
@@ -176,17 +168,20 @@ begin
   end;
 end;
 
-procedure TConexaoBD.AddParam(var AParams: TParamsDB; const AName: String; AValue: Variant; const AType: TFieldType; const AClear: Boolean);
+procedure TConexaoBD.AddParam(const AName: String; AValue: Variant; const AType: TFieldType; const AClear: Boolean);
 var
   parm: TFDParam;
 begin
-  if (AParams = nil) then
+  if (FParamsDB = nil) then
   begin
-    AParams := TParamsDB.Create;
-    AParams.BindMode := pbByName;
+    FParamsDB := TParamsDB.Create;
+    FParamsDB.BindMode := pbByName;
   end;
 
-  parm := AParams.Add(AName, AType, -1, ptInput);
+  if AClear then
+    FParamsDB.Clear;
+
+  parm := FParamsDB.Add(AName, AType, -1, ptInput);
   case AType of
     ftInteger,
     ftWord,
@@ -263,25 +258,15 @@ end;
 
 function TConexaoBD.CarregarParametrosConexao: Boolean;
 begin
-  //Carrega os parametros para conexão
   Result := False;
   try
     FParamsConexao.PathSistema := TIniFileUtils.Read(FNameIniFile, FSectionConnParams, 'PATH_SISTEMA', '');
     FparamsConexao.Server      := TIniFileUtils.Read(FNameIniFile, FSectionConnParams, 'SERVER', '');
     FparamsConexao.Port        := TIniFileUtils.Read(FNameIniFile, FSectionConnParams, 'PORT', '3306');
+    FparamsConexao.UserName    := TIniFileUtils.Read(FNameIniFile, FSectionConnParams, 'USERNAME', 'root');
+    FparamsConexao.Password    := TIniFileUtils.Read(FNameIniFile, FSectionConnParams, 'PASSWORD', 'root');
+    FparamsConexao.DataBase    := TIniFileUtils.Read(FNameIniFile, FSectionConnParams, 'DATABASE', 'TEST');
 
-    if (DebugHook <> 0) then
-    begin
-      FparamsConexao.UserName := 'root';
-      FparamsConexao.Password := 'root';
-    end
-    else
-    begin
-      FparamsConexao.UserName := 'seq_user';//'backup';
-      FparamsConexao.Password := 'seq_password';//'19100116##';
-    end;
-
-    FparamsConexao.DataBase := TIniFileUtils.Read(FNameIniFile, FSectionConnParams, 'DATABASE', 'softpharma');
     FparamsConexao.DriverID := 'MYSQL';
     Result := True;
   except
@@ -303,17 +288,25 @@ destructor TConexaoBD.Destroy;
 begin
   if (FDPhysMySQLDriverLink1 <> nil) then
     FreeAndNil(FDPhysMySQLDriverLink1);
+
   Close();
+
+  if Assigned(FTransaction) then
+    FTransaction.Free;
+
   if (FConnection <> nil) then
     FreeAndNil(FConnection);
-  if (FTransaction <> nil) then
-    FreeAndNil(FTransaction);
+
   if (FMoniCustom <> nil) then
     FreeAndNil(FMoniCustom);
+
+  if Assigned(FParamsDB) then
+    FParamsDB.Free;
+
   inherited;
 end;
 
-procedure TConexaoBD.ExecProcedure(const AProcedureName: String; AParams: TParamsDB);
+procedure TConexaoBD.ExecProcedure(const AProcedureName: String);
 var
   FDStoredProc: TFDStoredProc;
 begin
@@ -324,53 +317,54 @@ begin
       Connection     := FConnection;
       CatalogName    := FParamsConexao.DataBase;
       StoredProcName := AProcedureName;
-      if (AParams <> nil) then
+      if (FParamsDB <> nil) then
       begin
-        AParams.BindMode := pbByName;
-        Params := AParams;
+        FParamsDB.BindMode := pbByName;
+        Params := FParamsDB;
       end;
       Prepare();
       ExecProc();
     end;
   finally
-    if (AParams <> nil) then
-      FreeAndNil(AParams);
+    if (FParamsDB <> nil) then
+      FreeAndNil(FParamsDB);
     FreeAndNil(FDStoredProc);
   end;
 end;
 
-function TConexaoBD.ExecQuery(const ASql: String; AParams: TParamsDB): TDataSet;
+function TConexaoBD.ExecQuery(const ASql: String): TDataSet;
 var
   oQry: TFDQuery;
 begin
   Result := nil;
+  oQry := GetObjQuery(ASql);
   try
-    oQry := GetObjQuery(ASql, AParams);
-    try
-      oQry.Prepare;
-      oQry.Open;
-    finally
-      if (oQry.RecordCount > 0) then
-        Result := oQry
-      else begin
-        oQry.Close;
-        FreeAndNil(oQry);
-      end;
-    end;
+    oQry.Prepare;
+    oQry.Open;
   finally
-    if (AParams <> nil) then
-      FreeAndNil(AParams);
+    if (oQry.RecordCount > 0) then
+      Result := oQry
+    else begin
+      oQry.Close;
+      FreeAndNil(oQry);
+    end;
   end;
 end;
 
-function TConexaoBD.ExecScript(const ASql: String; AParams: TParamsDB): Integer;
-begin
-  Result := ExecScript(ASql, nil);
-end;
-
 function TConexaoBD.ExecScript(const ASql: String): Integer;
+  var
+  oQry: TFDQuery;
 begin
-   Result := ExecScript(ASql, nil);
+  Result := -1;
+  oQry := GetObjQuery(ASql);
+  try
+    oQry.Prepare;
+    oQry.ExecSQL;
+
+    Result := 1;
+  finally
+    FreeAndNil(oQry);
+  end;
 end;
 
 function TConexaoBD.GetConnection: TObject;
@@ -400,20 +394,7 @@ begin
   FreeAndNil(dtSet);
 end;
 
-function TConexaoBD.GetMyFilial: SmallInt;
-var
-  dtSet: TDataSet;
-begin
-  Result := 0;
-  dtSet := ExecQuery('select idmyfg from myfilial limit 1');
-  if (Assigned(dtSet)) then
-  begin
-    Result := dtSet.Fields[0].AsInteger;
-    FreeAndNil(dtSet);
-  end;
-end;
-
-function TConexaoBD.GetObjQuery(const ASql: String; AParams: TParamsDB): TFDQuery;
+function TConexaoBD.GetObjQuery(const ASql: String): TFDQuery;
 begin
   if (not FConnection.Connected) then
     FConnection.Connected := True;
@@ -422,22 +403,22 @@ begin
   Result.FetchOptions.RecordCountMode := cmTotal;
   Result.Connection := FConnection;
   Result.SQL.Text := ASql;
-  if (AParams <> nil) then
-  begin
-    AParams.BindMode := pbByName;
-    Result.Params := AParams;
-  end;
+
+  if Assigned(FParamsDB) and (FParamsDB.Count > 0) then
+    Result.Params := FParamsDB;
 end;
 
 function TConexaoBD.InTransaction: Boolean;
 begin
+  if not Assigned(FTransaction) then
+    FTransaction := TFDTransaction.Create(FConnection);
+
   Result := FTransaction.Active;
 end;
 
 function TConexaoBD.IsColumnExists(const Table: String; Column: String; const Schema: String): Boolean;
 var
   sql: String;
-  params: TParamsDB;
   dataSet: TDataSet;
 begin
   Result := False;
@@ -447,11 +428,12 @@ begin
     'where table_schema = coalesce(:table_schema, database()) '+
       'and table_name = :table_name '+
       'and column_name = :column_name';
-  params := nil;
-  AddParam(params, 'table_schema', Schema, ftString, True);
-  AddParam(params, 'table_name', Table, ftString);
-  AddParam(params, 'column_name', Column, ftString);
-  dataSet := ExecQuery(sql, params);
+
+  AddParam('table_schema', Schema, ftString, True);
+  AddParam('table_name', Table, ftString);
+  AddParam('column_name', Column, ftString);
+
+  dataSet := ExecQuery(sql);
   Result := (dataSet.Fields[0].AsInteger > 0);
   FreeAndNil(dataSet);
 end;
@@ -459,7 +441,6 @@ end;
 function TConexaoBD.IsSchemaExists(const Schema: String): Boolean;
 var
   sql: String;
-  params: TParamsDB;
   dataSet: TDataSet;
 begin
   Result := False;
@@ -467,9 +448,8 @@ begin
     'select count(1) '+
     'from information_schema.schemata '+
     'where schema_name = :schema_name';
-  params := nil;
-  AddParam(params, 'schema_name', Schema, ftString);
-  dataSet := ExecQuery(sql, params);
+  AddParam('schema_name', Schema, ftString);
+  dataSet := ExecQuery(sql);
   Result := (dataSet.Fields[0].AsInteger > 0);
   FreeAndNil(dataSet);
 end;
@@ -487,9 +467,9 @@ begin
     'where table_schema = coalesce(:table_schema, database()) '+
       'and table_name = :table_name';
   params := nil;
-  AddParam(params, 'table_schema', Schema, ftString, True);
-  AddParam(params, 'table_name', Table, ftString);
-  dataSet := ExecQuery(sql, params);
+  AddParam('table_schema', Schema, ftString, True);
+  AddParam('table_name', Table, ftString);
+  dataSet := ExecQuery(sql);
   Result := (dataSet.Fields[0].AsInteger > 0);
   FreeAndNil(dataSet);
 end;

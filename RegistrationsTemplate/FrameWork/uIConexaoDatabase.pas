@@ -20,10 +20,9 @@ type
 
     function  CarregarParametrosConexao: Boolean;
     function  DataBase(): String;
-    function  ExecQuery(const ASql: String; AParams: TParamsDB = nil): TDataSet;
-    function  ExecScript(const ASql: String; AParams: TParamsDB = nil): Integer; overload;
+    function  ExecQuery(const ASql: String): TDataSet;
     function  ExecScript(const ASql: String): Integer; overload;
-    procedure ExecProcedure(const AProcedureName: String; AParams: TParamsDB = nil);
+    procedure ExecProcedure(const AProcedureName: String);
     function  GetConnection(): TObject; overload;
     procedure StartTransaction();
     function  InTransaction(): Boolean;
@@ -31,7 +30,7 @@ type
     procedure Rollback();
     procedure Open();
     procedure Close();
-    procedure AddParam(var AParams: TParamsDB; const AName: String; AValue: Variant; const AType: TFieldType; const AClear: Boolean = True);
+    procedure AddParam(const AName: String; AValue: Variant; const AType: TFieldType; const AClear: Boolean = True);
     function  GetIdConnection(): Int64;
     function  GetDateTimeNow(): TDateTime;
     function  IsSchemaExists(const Schema: String): Boolean;

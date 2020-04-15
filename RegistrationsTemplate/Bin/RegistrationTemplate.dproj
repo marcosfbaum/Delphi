@@ -99,7 +99,7 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="..\Forms\uMainForm.pas">
-            <Form>Form1</Form>
+            <Form>FMain</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\FrameWork\uEntity.pas"/>
@@ -112,7 +112,13 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\FrameWork\uGenericDAO.pas"/>
-        <DCCReference Include="..\Entities\uAlunoEntity.pas"/>
+        <DCCReference Include="..\Entities\uStudentEntity.pas"/>
+        <DCCReference Include="..\Registrations\UStudentRegistration.pas">
+            <Form>FStudentRegistration</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
+        <DCCReference Include="..\FrameWork\uGenericService.pas"/>
+        <DCCReference Include="..\Utils\uException.Validation.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
