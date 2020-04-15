@@ -1,0 +1,3 @@
+Exemplo para cadastro padrão com conexão em banco de dados MYSQL.
+
+Há um script em "DataBaseScript" para criar o banco e a tabela que foi utilizado como exemplo.
