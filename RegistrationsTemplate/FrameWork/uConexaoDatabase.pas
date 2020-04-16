@@ -457,7 +457,6 @@ end;
 function TConexaoBD.IsTableExists(const Table, Schema: String): Boolean;
 var
   sql: String;
-  params: TParamsDB;
   dataSet: TDataSet;
 begin
   Result := False;
@@ -466,10 +465,11 @@ begin
     'from information_schema.tables '+
     'where table_schema = coalesce(:table_schema, database()) '+
       'and table_name = :table_name';
-  params := nil;
+
   AddParam('table_schema', Schema, ftString, True);
   AddParam('table_name', Table, ftString);
   dataSet := ExecQuery(sql);
+
   Result := (dataSet.Fields[0].AsInteger > 0);
   FreeAndNil(dataSet);
 end;

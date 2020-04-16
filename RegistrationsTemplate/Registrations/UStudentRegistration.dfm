@@ -10,9 +10,11 @@ inherited FStudentRegistration: TFStudentRegistration
     Width = 556
     Height = 256
     ExplicitWidth = 556
+    ExplicitHeight = 256
     inherited pnButtons: TPanel
       Top = 215
       Width = 556
+      ExplicitTop = 215
       ExplicitWidth = 556
       inherited btnCloseForm: TButton
         Left = 443
@@ -23,12 +25,15 @@ inherited FStudentRegistration: TFStudentRegistration
       Width = 556
       Height = 215
       ExplicitWidth = 556
+      ExplicitHeight = 215
       inherited tsRegisters: TTabSheet
         ExplicitWidth = 548
+        ExplicitHeight = 187
         inherited gRegisters: TcxGrid
           Width = 542
           Height = 124
           ExplicitWidth = 542
+          ExplicitHeight = 124
           inherited gvRegisters: TcxGridTableView
             OnEditKeyPress = nil
             object gvRegisters_ID: TcxGridColumn
@@ -60,25 +65,24 @@ inherited FStudentRegistration: TFStudentRegistration
         inherited pnFilter: TPanel
           Width = 548
           ExplicitWidth = 548
-          inherited sbFilter: TSearchBox
-            Width = 542
-            TextHint = 'Busque pelo Nome'
-            ExplicitWidth = 542
-          end
           inherited btnShowAll: TButton
             TabOrder = 2
           end
           inherited btnNewData: TButton
             TabOrder = 1
-            OnClick = btnNewDataClick
+          end
+          inherited seFilter: TStylizedEdit
+            Width = 542
           end
         end
       end
       inherited tsDetail: TTabSheet
         ExplicitWidth = 548
+        ExplicitHeight = 187
         inherited pnButtonsDetail: TPanel
           Top = 153
           Width = 548
+          ExplicitTop = 153
           ExplicitWidth = 548
           inherited btnCancel: TButton
             Left = 455
@@ -93,6 +97,7 @@ inherited FStudentRegistration: TFStudentRegistration
           Width = 542
           Height = 147
           ExplicitWidth = 542
+          ExplicitHeight = 147
           object Label1: TLabel
             Left = 16
             Top = 63
@@ -135,63 +140,98 @@ inherited FStudentRegistration: TFStudentRegistration
             Height = 13
             Caption = 'C'#243'digo'
           end
-          object edMatricula: TEdit
-            Left = 16
-            Top = 77
-            Width = 250
-            Height = 21
-            MaxLength = 20
-            TabOrder = 1
-            TextHint = 'Informe a matr'#237'cula'
-          end
-          object edNome: TEdit
-            Left = 16
-            Top = 117
-            Width = 250
-            Height = 21
-            MaxLength = 100
-            TabOrder = 2
-            TextHint = 'Informe o nome'
-          end
-          object edEndereco: TEdit
-            Left = 280
-            Top = 36
-            Width = 250
-            Height = 21
-            MaxLength = 200
-            TabOrder = 3
-            TextHint = 'Informe o endere'#231'o'
-          end
-          object edCPF: TEdit
-            Left = 280
-            Top = 117
-            Width = 121
-            Height = 21
-            MaxLength = 11
-            NumbersOnly = True
-            TabOrder = 5
-            TextHint = 'Informe o CPF'
-          end
-          object edFone: TEdit
-            Left = 280
-            Top = 77
-            Width = 121
-            Height = 21
-            MaxLength = 20
-            TabOrder = 4
-            TextHint = 'Informe o telefone'
-          end
-          object edID: TEdit
+          object edID: TStylizedEdit
             Left = 16
             Top = 36
             Width = 89
             Height = 21
             TabStop = False
+            BorderStyle = bsNone
+            Ctl3D = True
             Enabled = False
             MaxLength = 20
             NumbersOnly = True
+            ParentColor = True
+            ParentCtl3D = False
             TabOrder = 0
             TextHint = '0'
+            Apperance = sekStylizedEdit
+            Required = False
+          end
+          object edMatricula: TStylizedEdit
+            Left = 16
+            Top = 77
+            Width = 250
+            Height = 19
+            Ctl3D = False
+            MaxLength = 20
+            ParentColor = True
+            ParentCtl3D = False
+            TabOrder = 1
+            TextHint = 'Informe a matr'#237'cula'
+            Apperance = sekStandardEdit
+            Required = True
+          end
+          object edNome: TStylizedEdit
+            Left = 16
+            Top = 117
+            Width = 250
+            Height = 21
+            BorderStyle = bsNone
+            Ctl3D = False
+            MaxLength = 100
+            ParentColor = True
+            ParentCtl3D = False
+            TabOrder = 2
+            TextHint = 'Informe o nome'
+            Apperance = sekStylizedEdit
+            Required = True
+          end
+          object edEndereco: TStylizedEdit
+            Left = 280
+            Top = 36
+            Width = 250
+            Height = 21
+            BorderStyle = bsNone
+            Ctl3D = True
+            MaxLength = 200
+            ParentColor = True
+            ParentCtl3D = False
+            TabOrder = 3
+            TextHint = 'Informe o endere'#231'o'
+            Apperance = sekStylizedEdit
+            Required = False
+          end
+          object edCPF: TStylizedEdit
+            Left = 280
+            Top = 117
+            Width = 121
+            Height = 21
+            BorderStyle = bsNone
+            Ctl3D = False
+            MaxLength = 11
+            NumbersOnly = True
+            ParentColor = True
+            ParentCtl3D = False
+            TabOrder = 5
+            TextHint = 'Informe o CPF'
+            Apperance = sekStylizedEdit
+            Required = True
+          end
+          object edFone: TStylizedEdit
+            Left = 280
+            Top = 77
+            Width = 121
+            Height = 21
+            BorderStyle = bsNone
+            Ctl3D = True
+            MaxLength = 20
+            ParentColor = True
+            ParentCtl3D = False
+            TabOrder = 4
+            TextHint = 'Informe o telefone'
+            Apperance = sekStylizedEdit
+            Required = False
           end
         end
       end

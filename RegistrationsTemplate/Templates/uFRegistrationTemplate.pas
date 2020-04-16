@@ -11,7 +11,7 @@ uses
   cxDataStorage, cxEdit, cxNavigator, dxDateRanges, Data.DB, cxDBData,
   cxGridLevel, cxClasses, cxGridCustomView, cxGridCustomTableView,
   cxGridTableView, cxGridDBTableView, cxGrid, Vcl.ComCtrls,
-  uGenericService;
+  uGenericService, uStylizedEdit;
 
 type
   TFRegistrationTemplate = class(TForm)
@@ -28,10 +28,10 @@ type
     btnCancel: TButton;
     btnSave: TButton;
     pnFilter: TPanel;
-    sbFilter: TSearchBox;
     btnShowAll: TButton;
     btnNewData: TButton;
     gbData: TGroupBox;
+    seFilter: TStylizedEdit;
     procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure btnCloseFormClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
@@ -42,9 +42,9 @@ type
     procedure FormCreate(Sender: TObject);
     procedure btnCancelClick(Sender: TObject);
     procedure btnSaveClick(Sender: TObject);
-    procedure sbFilterChange(Sender: TObject);
+    procedure seFilterChange(Sender: TObject);
     procedure btnNewDataClick(Sender: TObject);
-    procedure sbFilterKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure seFilterKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure gvRegistersKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     { Private declarations }
@@ -115,7 +115,7 @@ procedure TFRegistrationTemplate.FormShow(Sender: TObject);
 begin
   pgcRegisters.ActivePage := tsRegisters;
   ChangeTabCheet(pgcRegisters.ActivePageindex);
-  sbFilter.SetFocus;
+  seFilter.SetFocus;
 end;
 
 function TFRegistrationTemplate.GetSelectedRow: Integer;
@@ -134,14 +134,14 @@ procedure TFRegistrationTemplate.gvRegistersEditKeyPress(Sender: TcxCustomGridTa
 begin
   if CharInSet(Key, ['A'..'Z', 'a'..'z', #8]) then
   begin
-    sbFilter.SetFocus;
-    sbFilter.SelText := Key;
+    seFilter.SetFocus;
+    seFilter.SelText := Key;
   end
   else
   if CharInSet(Key, [#13, #8]) then
   begin
-    sbFilter.Clear;
-    sbFilter.SetFocus;
+    seFilter.Clear;
+    seFilter.SetFocus;
   end;
 end;
 
@@ -158,17 +158,17 @@ begin
 
   if tsRegisters.TabVisible then
   begin
-    if sbFilter.CanFocus then
-      sbFilter.SetFocus;
+    if seFilter.CanFocus then
+      seFilter.SetFocus;
   end;
 end;
 
-procedure TFRegistrationTemplate.sbFilterChange(Sender: TObject);
+procedure TFRegistrationTemplate.seFilterChange(Sender: TObject);
 begin
   gvRegisters.DataController.RecordCount := 0;
 end;
 
-procedure TFRegistrationTemplate.sbFilterKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+procedure TFRegistrationTemplate.seFilterKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   case Key of
     VK_RETURN:

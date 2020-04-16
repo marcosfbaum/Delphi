@@ -11,7 +11,7 @@ uses
   cxNavigator, dxDateRanges, cxGridCustomTableView, cxGridTableView,
   cxGridLevel, cxClasses, cxGridCustomView, cxGrid, cxDataUtils, Vcl.ComCtrls, Vcl.StdCtrls,
   Vcl.WinXCtrls, Vcl.ExtCtrls,
-  Data.DB, uIConexaoDatabase, uStudentEntity, uException.Validation;
+  Data.DB, uIConexaoDatabase, uStudentEntity, uException.Validation, uStylizedEdit;
 
 type
   TFStudentRegistration = class(TFRegistrationTemplate)
@@ -21,25 +21,25 @@ type
     gvRegisters_TELEFONE: TcxGridColumn;
     gvRegisters_CPF: TcxGridColumn;
     Label1: TLabel;
-    edMatricula: TEdit;
     Label2: TLabel;
-    edNome: TEdit;
     Label3: TLabel;
-    edEndereco: TEdit;
-    edCPF: TEdit;
     Label5: TLabel;
-    edFone: TEdit;
     Label4: TLabel;
     gvRegisters_ID: TcxGridColumn;
     Label6: TLabel;
-    edID: TEdit;
-    procedure sbFilterChange(Sender: TObject);
+    edID: TStylizedEdit;
+    edMatricula: TStylizedEdit;
+    edNome: TStylizedEdit;
+    edEndereco: TStylizedEdit;
+    edCPF: TStylizedEdit;
+    edFone: TStylizedEdit;
     procedure btnShowAllClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnSaveClick(Sender: TObject);
     procedure btnNewDataClick(Sender: TObject);
     procedure gvRegistersKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+    procedure seFilterChange(Sender: TObject);
   private
     FStudentEntity: TStudentEntity;
     procedure EditStudent(const aSelectedRow: Integer);
@@ -54,17 +54,17 @@ implementation
 
 {$R *.dfm}
 
-procedure TFStudentRegistration.sbFilterChange(Sender: TObject);
+procedure TFStudentRegistration.seFilterChange(Sender: TObject);
 var
   Ldataset: TDataset;
 begin
   inherited;
 
-  if sbFilter.Text = EmptyStr then
+  if seFilter.Text = EmptyStr then
     Exit;
 
 // No filtro pode ser passado SQL já definido ou apenas a entidade e seus parâmetros.
-  FService.AddParamsDB('NOME_ALUNO', sbFilter.Text, ftString, True);
+  FService.AddParamsDB('NOME_ALUNO', seFilter.Text, ftString, True);
 //  LDataset := FService.Filter(rsFilterSQL); //Assim tb funciona
   LDataset := FService.Filter(FStudentEntity, ['NOME_ALUNO']);
 
@@ -149,7 +149,7 @@ begin
     VK_RETURN:
       begin
         EditStudent(GetSelectedRow());
-        sbFilter.Clear;
+        seFilter.Clear;
       end;
   end;
 end;
@@ -167,19 +167,19 @@ end;
 
 procedure TFStudentRegistration.Validate();
 begin
-  if FStudentEntity.Matricula.Trim.IsEmpty then
+  if (edMatricula.IsRequired()) and FStudentEntity.Matricula.Trim.IsEmpty then
     raise EValidation.Create('Informe a matrícula.', edMatricula);
 
-  if FStudentEntity.Nome.Trim.IsEmpty then
+  if (edNome.IsRequired()) and FStudentEntity.Nome.Trim.IsEmpty then
     raise EValidation.Create('Informe o nome.', edNome);
 
-  if FStudentEntity.Endereco.Trim.IsEmpty then
+  if (edEndereco.IsRequired()) and FStudentEntity.Endereco.Trim.IsEmpty then
     raise EValidation.Create('Informe o endereço.', edEndereco);
 
-  if FStudentEntity.Telefone.Trim.IsEmpty then
+  if (edFone.IsRequired()) and FStudentEntity.Telefone.Trim.IsEmpty then
     raise EValidation.Create('Informe o telefone.', edFone);
 
-  if FStudentEntity.CPF.Trim.IsEmpty then
+  if (edCPF.IsRequired()) and FStudentEntity.CPF.Trim.IsEmpty then
     raise EValidation.Create('Informe o CPF.', edCPF);
 end;
 

@@ -30,7 +30,5 @@ object FMain: TFMain
     ParentFont = False
     TabOrder = 0
     OnClick = Button1Click
-    ExplicitTop = 325
-    ExplicitWidth = 543
   end
 end

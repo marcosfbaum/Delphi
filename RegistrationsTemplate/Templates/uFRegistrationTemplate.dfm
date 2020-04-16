@@ -102,24 +102,6 @@ object FRegistrationTemplate: TFRegistrationTemplate
           Color = clGradientInactiveCaption
           ParentBackground = False
           TabOrder = 0
-          object sbFilter: TSearchBox
-            AlignWithMargins = True
-            Left = 3
-            Top = 3
-            Width = 523
-            Height = 24
-            Align = alTop
-            Font.Charset = DEFAULT_CHARSET
-            Font.Color = clWindowText
-            Font.Height = -13
-            Font.Name = 'Tahoma'
-            Font.Style = []
-            ParentFont = False
-            TabOrder = 0
-            TextHint = 'Busque pela descri'#231#227'o'
-            OnChange = sbFilterChange
-            OnKeyDown = sbFilterKeyDown
-          end
           object btnShowAll: TButton
             AlignWithMargins = True
             Left = 97
@@ -139,6 +121,26 @@ object FRegistrationTemplate: TFRegistrationTemplate
             Caption = 'Novo'
             TabOrder = 2
             OnClick = btnNewDataClick
+          end
+          object seFilter: TStylizedEdit
+            AlignWithMargins = True
+            Left = 3
+            Top = 3
+            Width = 523
+            Height = 24
+            Align = alTop
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clWindowText
+            Font.Height = -13
+            Font.Name = 'Tahoma'
+            Font.Style = []
+            ParentFont = False
+            TabOrder = 0
+            TextHint = 'Busque pela descri'#231#227'o'
+            OnChange = seFilterChange
+            OnKeyDown = seFilterKeyDown
+            Apperance = sekStandardEdit
+            Required = False
           end
         end
       end

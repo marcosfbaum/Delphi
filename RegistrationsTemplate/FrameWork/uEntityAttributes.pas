@@ -2,6 +2,8 @@ unit uEntityAttributes;
 
 interface
 
+{$M+}
+
 type
   TableName = class(TCustomAttribute)
     private
@@ -31,6 +33,8 @@ type
     published
       property Name: String read FName write FName;
   end;
+
+{$M-}
 
 implementation
 
