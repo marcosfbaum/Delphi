@@ -41,7 +41,7 @@ var
   LValue: Integer;
   LValidationFunc: TInputIntegerCloseQueryFunc;
 begin
-// Add Integer
+// Add Integer with anonymous function to validate data
   WriteValue('Add Integer - Start');
   LValue := 0;
 
@@ -80,7 +80,7 @@ var
   LValue: Integer;
   LValidationFunc: TInputIntegerArrayCloseQueryFunc;
 begin
-// Add Integer Array
+// Add Integer Array with anonymous function to validate data array
   WriteValue('Add integer aArray- Start');
   SetLength(LValues, 4);
 
