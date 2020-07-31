@@ -4,14 +4,14 @@
     <Transaction>2019/10/29 22:28:25.000.454,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/04/16 10:29:12.000.830,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
     <Transaction>2020/04/27 22:59:14.000.977,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/06/04 08:42:17.021,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/06/04 08:42:25.841,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2020/06/04 16:16:24.977,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2020/06/04 16:16:35.933,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
-    <Transaction>2020/06/04 16:17:40.816,D:\Projetos\DelphiRepo\InputQueryExample\Unit\uInputQuery.pas=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
-    <Transaction>2020/06/04 16:17:57.284,D:\Projetos\DelphiRepo\InputQueryExample\Unit\uInputQueryForm.pas=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
-    <Transaction>2020/06/04 16:18:23.294,D:\Projetos\DelphiRepo\InputQueryExample\Forms\uMain.pas=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2020/06/04 16:18:23.294,D:\Projetos\DelphiRepo\InputQueryExample\Forms\uMain.dfm=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
-    <Transaction>2020/06/04 16:18:58.783,D:\Projetos\DelphiRepo\InputQueryExample\bin\InputQueryExample.dproj=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/06/04 08:42:17.000.021,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/06/04 08:42:25.000.841,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2020/06/04 16:16:24.000.977,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit2.pas</Transaction>
+    <Transaction>2020/06/04 16:16:35.000.933,=C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>2020/06/04 16:17:40.000.816,C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit3.pas=D:\Projetos\DelphiRepo\InputQueryExample\Unit\uInputQuery.pas</Transaction>
+    <Transaction>2020/06/04 16:17:57.000.284,C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit2.pas=D:\Projetos\DelphiRepo\InputQueryExample\Unit\uInputQueryForm.pas</Transaction>
+    <Transaction>2020/06/04 16:18:23.000.294,C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.dfm=D:\Projetos\DelphiRepo\InputQueryExample\Forms\uMain.dfm</Transaction>
+    <Transaction>2020/06/04 16:18:23.000.294,C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Unit1.pas=D:\Projetos\DelphiRepo\InputQueryExample\Forms\uMain.pas</Transaction>
+    <Transaction>2020/06/04 16:18:58.000.783,C:\Users\MarcosBaum\Documents\Embarcadero\Studio\Projects\Project1.dproj=D:\Projetos\DelphiRepo\InputQueryExample\bin\InputQueryExample.dproj</Transaction>
   </Transactions>
 </BorlandProject>
