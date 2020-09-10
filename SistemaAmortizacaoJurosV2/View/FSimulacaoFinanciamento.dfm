@@ -95,9 +95,10 @@ object SimulacaoFinanciamento: TSimulacaoFinanciamento
   object NavigatorPrototypeBindSource1: TBindNavigator
     Left = 48
     Top = 83
-    Width = 360
+    Width = 348
     Height = 25
     DataSource = PrototypeBindSource1
+    VisibleButtons = [nbFirst, nbPrior, nbNext, nbLast]
     Orientation = orHorizontal
     TabOrder = 5
   end
@@ -254,7 +255,7 @@ object SimulacaoFinanciamento: TSimulacaoFinanciamento
       end>
     ScopeMappings = <>
     OnCreateAdapter = PrototypeBindSource2CreateAdapter
-    Left = 576
-    Top = 88
+    Left = 648
+    Top = 168
   end
 end

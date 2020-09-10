@@ -10,10 +10,10 @@ uses
   Vcl.Bind.Editors, Data.Bind.EngExt, Vcl.Bind.DBEngExt, Vcl.Bind.Grid,
   Data.Bind.Grid, Vcl.Grids, Vcl.Bind.GenData, Data.Bind.Controls, Vcl.Buttons, Vcl.Bind.Navigator,
   Financiamento.Types, IIFinanciamento.Factory, IIFinanciamento.Service,
-  Spring.Container;
+  Spring.Container, IIFinanciamento.PagamentoUnico, IFinanciamento.Observer;
 
 type
-  TSimulacaoFinanciamento = class(TForm)
+  TSimulacaoFinanciamento = class(TForm, IFinanciamentoObserver)
     edCapital: TLabeledEdit;
     edTaxaJuros: TLabeledEdit;
     edParcelas: TLabeledEdit;
@@ -39,14 +39,13 @@ type
     procedure FormCreate(Sender: TObject);
     procedure PrototypeBindSource2CreateAdapter(Sender: TObject; var ABindSourceAdapter: TBindSourceAdapter);
   private
-    Fparcelas: TObjectList<TFinanciamentoModel>;
-    FTotais: TFinanciamentoTotais;
-    procedure ShowFinanciamento();
+    FListFinanciamento: TObjectList<TFinanciamento>;
+    FTotaisFinanciamento: TFinanciamentoTotais;
+
     procedure ClearParcelas;
     { Private declarations }
   public
-//    constructor Create(Aowner: TComponent); override;
-
+    procedure Atualizar(const aFinanciamentoModel: TFinanciamentoModel);
     { Public declarations }
   end;
 
@@ -55,54 +54,33 @@ implementation
 {$R *.dfm}
 
 procedure TSimulacaoFinanciamento.btnCalcularClick(Sender: TObject);
-  var
+var
   LFinanciamentoFactory: IFinanciamentoFactory;
   LFinanciamentoService: IFinanciamentoService;
 begin
   LFinanciamentoFactory := GlobalContainer.Resolve<IFinanciamentoFactory>;
-  LFinanciamentoService := LFinanciamentoFactory.Create(tfPagamentoUnico,
-                                                        StrToCurr(edCapital.Text),
-                                                        StrToInt(edParcelas.Text),
-                                                        StrToCurr(edTaxaJuros.Text));
+  LFinanciamentoService := LFinanciamentoFactory.Create();
 
   ClearParcelas();
-  LFinanciamentoService.CalculateFinanciamentoPagamentoUnico(Fparcelas, FTotais);
-  ShowFinanciamento();
+
+  LFinanciamentoService
+    .Financiamento(TTipoFinanciamento.tfPagamentoUnico, Self)
+    .Calculate(StrToCurr(edCapital.Text),
+               StrToInt(edParcelas.Text),
+               StrToCurr(edTaxaJuros.Text));
 end;
 
 procedure TSimulacaoFinanciamento.ClearParcelas();
 begin
-  Fparcelas.Clear;
-end;
-
-procedure TSimulacaoFinanciamento.ShowFinanciamento();
-//var
-//  LLinkListControlsToField: TLinkListControlToField;
-//  LLinkControlToField: TLinkControlToField;
-begin
-//  StringGrid1.RowCount := Fparcelas.Count;
-//
-//  LLinkListControlsToField            := TLinkListControlToField.Create(Self);
-//  LLinkListControlsToField.DataSource := PrototypeBindSource1;
-//  LLinkListControlsToField.FieldName  := 'Parcela';
-
-//  LLinkControlToField := TLinkControlToField.Create(Self);
-//  LLinkControlToField.DataSource := PrototypeBindSource2;
-//  LLinkControlToField.FieldName  := 'TotalJuros';
-//  LLinkControlToField.Control    := edTotJuros;
-//  LLinkControlToField.Track      := True;
-
-  PrototypeBindSource1.Active := False;
-  PrototypeBindSource1.Active := True;
-
-  PrototypeBindSource2.Active := False;
-  PrototypeBindSource2.Active := True;
+  FListFinanciamento.Clear;;
+  FTotaisFinanciamento.Reset();
 end;
 
 procedure TSimulacaoFinanciamento.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   ClearParcelas();
   PrototypeBindSource1.Active := False;
+  PrototypeBindSource2.Active := False;
   Action := caFree;
 end;
 
@@ -113,15 +91,27 @@ end;
 
 procedure TSimulacaoFinanciamento.PrototypeBindSource1CreateAdapter(Sender: TObject; var ABindSourceAdapter: TBindSourceAdapter);
 begin
-  Fparcelas := TObjectList<TFinanciamentoModel>.Create(True);
-  ABindSourceAdapter := TListBindSourceAdapter<TFinanciamentoModel>.Create(Self, Fparcelas, True);
+  FListFinanciamento := TObjectList<TFinanciamento>.Create(False);
+  ABindSourceAdapter := TListBindSourceAdapter<TFinanciamento>.Create(Self, FListFinanciamento, True);
 end;
-
 
 procedure TSimulacaoFinanciamento.PrototypeBindSource2CreateAdapter(Sender: TObject; var ABindSourceAdapter: TBindSourceAdapter);
 begin
-  FTotais := TFinanciamentoTotais.Create;
-  ABindSourceAdapter := TObjectBindSourceAdapter<TFinanciamentoTotais>.Create(self, FTotais, True);
+  FTotaisFinanciamento := TFinanciamentoTotais.Create;
+  ABindSourceAdapter := TObjectBindSourceAdapter<TFinanciamentoTotais>.Create(Self, FTotaisFinanciamento, True);
+end;
+
+procedure TSimulacaoFinanciamento.Atualizar(const aFinanciamentoModel: TFinanciamentoModel);
+begin
+  FListFinanciamento.AddRange(aFinanciamentoModel.FinanciamentoParcelas);
+
+  FTotaisFinanciamento.Clone(aFinanciamentoModel.Totais);
+
+  PrototypeBindSource1.Active := False;
+  PrototypeBindSource1.Active := True;
+
+  PrototypeBindSource2.Active := False;
+  PrototypeBindSource2.Active := True;
 end;
 
 end.
