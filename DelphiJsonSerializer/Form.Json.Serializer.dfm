@@ -25,6 +25,8 @@ object Form1: TForm1
     ReadOnly = True
     ScrollBars = ssBoth
     TabOrder = 0
+    ExplicitLeft = -168
+    ExplicitTop = -6
   end
   object gbPeople: TGroupBox
     Left = 0
@@ -64,9 +66,6 @@ object Form1: TForm1
       Align = alRight
       Caption = '[ Address ]'
       TabOrder = 2
-      ExplicitLeft = 316
-      ExplicitTop = 14
-      ExplicitHeight = 105
       object edStreet: TLabeledEdit
         Left = 24
         Top = 31
@@ -97,7 +96,6 @@ object Form1: TForm1
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 2
-    ExplicitTop = 422
     object btnSerializeJson: TButton
       AlignWithMargins = True
       Left = 284
@@ -108,9 +106,6 @@ object Form1: TForm1
       Caption = 'Serialize Json'
       TabOrder = 0
       OnClick = btnSerializeJsonClick
-      ExplicitLeft = 263
-      ExplicitTop = 9
-      ExplicitHeight = 43
     end
     object btnDeserializeJson: TButton
       AlignWithMargins = True
@@ -122,9 +117,6 @@ object Form1: TForm1
       Caption = 'Deserialize Json'
       TabOrder = 1
       OnClick = btnDeserializeJsonClick
-      ExplicitLeft = 381
-      ExplicitTop = 9
-      ExplicitHeight = 43
     end
     object btnClear: TButton
       AlignWithMargins = True
@@ -136,9 +128,6 @@ object Form1: TForm1
       Caption = 'Clear'
       TabOrder = 2
       OnClick = btnClearClick
-      ExplicitLeft = 499
-      ExplicitTop = 9
-      ExplicitHeight = 43
     end
   end
 end
